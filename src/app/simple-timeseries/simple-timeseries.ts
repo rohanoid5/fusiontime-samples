@@ -12,8 +12,8 @@ export class SimpleTimeSeries {
   height: string;
   constructor() {
     this.type = 'timeseries';
-    this.width = '600';
-    this.height = '400';
+    this.width = '800';
+    this.height = '600';
     this.dataSource = {
       data: null,
       yAxis: null,
