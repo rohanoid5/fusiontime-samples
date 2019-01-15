@@ -21,6 +21,12 @@ import { MultiVariateTimeSeries } from './multivariate-timeseries/multivariate-t
 import { StockChart } from './stock-chart/stock-chart';
 import { SingleEventOverlay } from './single-event-overlay/single-event-overlay';
 import { MultiSeriesTimeAxis } from './multiseries-timeaxis/multiseries-timeaxis';
+import { ColumnLineTimeAxis } from './column-line-time-axis/column-line-time-axis';
+import { ColumnTimeAxis } from './column-time-axis/column-time-axis';
+import { AreaTimeAxis } from './area-time-axis/area-time-axis';
+import { AnnotaingSingleDataPoint } from './annotating-single-data-point/annotating-single-data-point';
+import { DateEventOverlay } from './date-event-overlay/date-event-overlay';
+import { AddingReferenceLine } from './adding-reference-line/adding-reference-line';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,13 @@ import { MultiSeriesTimeAxis } from './multiseries-timeaxis/multiseries-timeaxis
     MultiVariateTimeSeries,
     StockChart,
     SingleEventOverlay,
-    MultiSeriesTimeAxis
+    MultiSeriesTimeAxis,
+    ColumnLineTimeAxis,
+    ColumnTimeAxis,
+    AreaTimeAxis,
+    AnnotaingSingleDataPoint,
+    DateEventOverlay,
+    AddingReferenceLine
   ],
   imports: [
     BrowserModule,
