@@ -16,8 +16,24 @@ export class SimpleTimeSeries {
     this.height = '600';
     this.dataSource = {
       data: null,
-      yAxis: null,
-      caption: null
+      caption: {
+        text: 'Sales Analysis'
+      },
+      subcaption: {
+        text: 'Grocery'
+      },
+      yAxis: [
+        {
+          plot: {
+            value: 'Grocery Sales Value',
+            type: 'line'
+          },
+          format: {
+            prefix: '$'
+          },
+          title: 'Sale Value'
+        }
+      ]
     };
     this.fetchData();
   }
@@ -25,10 +41,10 @@ export class SimpleTimeSeries {
   fetchData() {
     var jsonify = res => res.json();
     var dataFetch = fetch(
-      'https://raw.githubusercontent.com/fusioncharts/dev_centre_docs/fusiontime-beta-release/charts-resources/fusiontime/online-sales-single-series/data.json'
+      'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/data/line-chart-with-time-axis-data.json'
     ).then(jsonify);
     var schemaFetch = fetch(
-      'https://raw.githubusercontent.com/fusioncharts/dev_centre_docs/fusiontime-beta-release/charts-resources/fusiontime/online-sales-single-series/schema.json'
+      'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/schema/line-chart-with-time-axis-schema.json'
     ).then(jsonify);
 
     Promise.all([dataFetch, schemaFetch]).then(res => {
@@ -39,16 +55,6 @@ export class SimpleTimeSeries {
         schema
       );
       this.dataSource.data = fusionTable;
-      this.dataSource.yAxis = {
-        plot: [
-          {
-            value: 'Sales ($)'
-          }
-        ]
-      };
-      this.dataSource.caption = {
-        text: 'Online Sales of a SuperStore in the US'
-      };
     });
   }
 }

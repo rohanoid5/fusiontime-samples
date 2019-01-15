@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import * as FusionCharts from 'fusioncharts';
 
 @Component({
-  selector: 'multivariate-timeseries',
-  templateUrl: './multivariate-timeseries.html'
+  selector: 'multiseries-timeaxis',
+  templateUrl: './multiseries-timeaxis.html'
 })
-export class MultiVariateTimeSeries {
+export class MultiSeriesTimeAxis {
   dataSource: any;
   type: string;
   width: string;
@@ -17,23 +17,19 @@ export class MultiVariateTimeSeries {
     this.dataSource = {
       data: null,
       caption: {
-        text: 'Cariaco Basin Sampling'
+        text: 'Sales Analysis'
       },
       subcaption: {
-        text: 'Analysis of O₂ Concentration and Surface Temperature'
+        text: 'Grocery & Footwear'
       },
+      series: 'Type',
       yAxis: [
         {
-          plot: 'O2 concentration',
-          min: '3',
-          max: '6',
-          title: 'O₂ Concentration (mg/L)'
-        },
-        {
-          plot: 'Surface Temperature',
-          min: '18',
-          max: '30',
-          title: 'Surface Temperature (°C)'
+          plot: 'Sales Value',
+          title: 'Sale Value',
+          format: {
+            prefix: '$'
+          }
         }
       ]
     };
@@ -43,10 +39,10 @@ export class MultiVariateTimeSeries {
   fetchData() {
     var jsonify = res => res.json();
     var dataFetch = fetch(
-      'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/data/plotting-two-variable-measures-data.json'
+      'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/data/plotting-multiple-series-on-time-axis-data.json'
     ).then(jsonify);
     var schemaFetch = fetch(
-      'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/schema/plotting-two-variable-measures-schema.json'
+      'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/schema/plotting-multiple-series-on-time-axis-schema.json'
     ).then(jsonify);
 
     Promise.all([dataFetch, schemaFetch]).then(res => {

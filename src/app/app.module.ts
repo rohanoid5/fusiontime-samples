@@ -20,6 +20,7 @@ import { SimpleTimeSeries } from './simple-timeseries/simple-timeseries';
 import { MultiVariateTimeSeries } from './multivariate-timeseries/multivariate-timeseries';
 import { StockChart } from './stock-chart/stock-chart';
 import { SingleEventOverlay } from './single-event-overlay/single-event-overlay';
+import { MultiSeriesTimeAxis } from './multiseries-timeaxis/multiseries-timeaxis';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SingleEventOverlay } from './single-event-overlay/single-event-overlay'
     SimpleTimeSeries,
     MultiVariateTimeSeries,
     StockChart,
-    SingleEventOverlay
+    SingleEventOverlay,
+    MultiSeriesTimeAxis
   ],
   imports: [
     BrowserModule,
